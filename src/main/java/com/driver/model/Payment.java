@@ -13,7 +13,7 @@ public class Payment {
     @Enumerated(value=EnumType.STRING)
     private PaymentMode paymentMode;
 
-    @OneToOne(mappedBy = "payment",cascade = CascadeType.ALL)
+    @OneToOne()
     private Reservation reservation;
 
     public Payment() {
