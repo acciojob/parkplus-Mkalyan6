@@ -27,9 +27,9 @@ public class PaymentServiceImpl implements PaymentService {
         if (optionalReservation.isPresent()) {
             Reservation reservation = optionalReservation.get();
             // this reservation has the detalis of how many hours this reservation of spot  made by the user is given
-             payment = reservation.getPayment();
+//             payment = reservation.getPayment();
 
-            if (payment.getPaymentCompleted()) return payment;
+//            if (payment.getPaymentCompleted()) return payment;
 
             int hours = reservation.getNumberOfHours();
             Spot spot = reservation.getSpot();
