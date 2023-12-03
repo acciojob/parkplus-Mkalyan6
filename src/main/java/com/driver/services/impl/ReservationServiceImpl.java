@@ -1,10 +1,7 @@
 package com.driver.services.impl;
 
 import com.driver.model.*;
-import com.driver.repository.ParkingLotRepository;
-import com.driver.repository.ReservationRepository;
-import com.driver.repository.SpotRepository;
-import com.driver.repository.UserRepository;
+import com.driver.repository.*;
 import com.driver.services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +19,9 @@ public class ReservationServiceImpl implements ReservationService {
     ReservationRepository reservationRepository3;
     @Autowired
     ParkingLotRepository parkingLotRepository3;
+
+    @Autowired
+    PaymentRepository paymentRepository3;
     @Override
     public Reservation reserveSpot(Integer userId, Integer parkingLotId, Integer timeInHours, Integer numberOfWheels) throws Exception {
 
@@ -73,15 +73,16 @@ public class ReservationServiceImpl implements ReservationService {
 
                      Payment payment=new Payment();
                      payment.setPaymentCompleted(false);
+                     payment.setReservation(reservation);
                      reservation.setPayment(payment);
                      reservationRepository3.save(reservation);
+                     userRepository3.save(user);
+//                     paymentRepository3.save(payment);
 
 
 
 
 
-           }else{
-               throw new Exception("Cannot make reservation");
            }
         reservationRepository3.save(reservation);
            return  reservation;

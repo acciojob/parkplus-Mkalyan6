@@ -44,8 +44,8 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
             spot.setPricePerHour(pricePerHour);
 
-            if(numberOfWheels==2)spot.setSpotType(SpotType.TWO_WHEELER);
-            else if(numberOfWheels==4)spot.setSpotType(SpotType.FOUR_WHEELER);
+            if(numberOfWheels<=2)spot.setSpotType(SpotType.TWO_WHEELER);
+            else if(numberOfWheels<=4)spot.setSpotType(SpotType.FOUR_WHEELER);
             else{ spot.setSpotType(SpotType.OTHERS);}
 
             spot.setOccupied(false);
@@ -89,8 +89,9 @@ public class ParkingLotServiceImpl implements ParkingLotService {
                  ParkingLot parkingLot=optionalParkingLot.get();
 
                  // delete the present parking lot the spot is present, then update with the new parking lot
-                 spot.setParkingLot(parkingLot);
+                 spot.setParkingLot(null);
                  spotRepository1.save(spot);
+                 spot.setParkingLot(parkingLot);
              }
         }
         spotRepository1.save(spot);
