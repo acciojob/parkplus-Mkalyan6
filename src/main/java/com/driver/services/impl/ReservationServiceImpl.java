@@ -60,8 +60,9 @@ public class ReservationServiceImpl implements ReservationService {
                          }
                      }
                      if(reserSpot==null){
-                         throw new Exception("Cannot make reservation");// means in the parking lot we donot get the spot which
+//                         throw new Exception("Cannot make reservation");// means in the parking lot we donot get the spot which
                          // suits the wheels of the vehicle
+                         return null;
                      }
 
                      // Now make the reservation and assign values to attributes
@@ -77,15 +78,16 @@ public class ReservationServiceImpl implements ReservationService {
                      reservation.setPayment(payment);
                      reservationRepository3.save(reservation);
                      userRepository3.save(user);
-//                     paymentRepository3.save(payment);
+                     paymentRepository3.save(payment);
 
+                     reserSpot.getReservationList().add(reservation);
+                     spotRepository3.save(reserSpot);
 
 
 
 
            }
-        reservationRepository3.save(reservation);
-           return  reservation;
+           return  null;
 
     }
 }
