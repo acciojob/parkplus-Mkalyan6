@@ -54,6 +54,6 @@ public class ParkingLot {
     }
 
     public void setSpotList(List<Spot> spotLists) {
-        this.spotLists = spotLists;
+        this.spotList = spotLists;
     }
 }
