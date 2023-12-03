@@ -62,7 +62,7 @@ public class ReservationServiceImpl implements ReservationService {
                      if(reserSpot==null){
 //                         throw new Exception("Cannot make reservation");// means in the parking lot we donot get the spot which
                          // suits the wheels of the vehicle
-                         return null;
+                         return reservation;
                      }
 
                      // Now make the reservation and assign values to attributes
@@ -87,7 +87,7 @@ public class ReservationServiceImpl implements ReservationService {
 
 
            }
-           return  null;
+           return  reservation;
 
     }
 }
