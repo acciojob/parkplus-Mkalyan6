@@ -37,7 +37,7 @@ public class ReservationServiceImpl implements ReservationService {
                      int totalCost=Integer.MAX_VALUE;
                      Spot reserSpot=null;
 
-                     for(Spot spot: parkingLot.getSpotLists()) {
+                     for(Spot spot: parkingLot.getSpotList()) {
                          if (!spot.getOccupied()) {
                              int wheelsForSpot = 0;
 

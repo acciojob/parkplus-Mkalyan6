@@ -104,7 +104,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         Optional<ParkingLot> optionalParkingLot=parkingLotRepository1.findById(parkingLotId);
         if(optionalParkingLot.isPresent()){
             ParkingLot parkingLot=optionalParkingLot.get();
-            for(Spot spot: parkingLot.getSpotLists()){
+            for(Spot spot: parkingLot.getSpotList()){
                 for(Reservation reservation: spot.getReservationList()){
                     reservation.setUser(null);
                     reservationRepository1.save(reservation);
